@@ -1,0 +1,46 @@
+.search
+    .header &
+        @media media-min-lg
+            flex: 0 1 555px
+            margin: auto
+
+            &__input
+                height: 42px
+                border: solid 1px var(--color-input)
+                border-radius: 2px
+                box-shadow: none
+                color: var(--color-text)
+                font-weight: reuglar
+                font-size: 14px
+                transition: all .2s ease-in-out
+
+                &::placeholder
+                    color: var(--color-placeholder)
+
+                &:focus
+                    border-color: var(--color-text)
+
+                    &::placeholder
+                        color: transparent
+
+            &__button
+                position: absolute
+                right: 0
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 0
+                width: 50px
+                height: 42px
+                background: none
+                box-shadow: none
+                color: var(--color-text) t
+
+                .ico
+                    width: 22px
+                    height: 22px
+                    fill: currentColor
+
+                &:hover
+                    background: none
+                    color: var(--primary)

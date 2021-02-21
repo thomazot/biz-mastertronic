@@ -1,4 +1,20 @@
 .header
+    justify-content: space-between
+    align-items: center
+    gap: gap
+
+    @media media-min-lg
+        height: 78px
+
     &-container
         position: sticky
         top: 0
+        filter: blur(0)
+        box-shadow: none
+        transition: all .2s ease-in-out
+        transform: translateY(0)
+
+        .scrolling--down &
+            @media media-min-lg
+                filter: blur(0)
+                transform: translateY(-78px)
