@@ -40,6 +40,13 @@
     --color-input: #cccccc
     --color-placeholder: #a0a0a0
     --color-link: #666
+    --color-opacity: rgba(0, 0, 0, .2)
+    --color-link-categories: #737373
+    --color-rating: #cccccc
+    --color-rating-active: #f8c848
+    --color-old-price: #737373
+    --color-special-price: #0033a0
+    --color-payment: #999999
 
 /*
  * Base
@@ -50,8 +57,29 @@ body
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
 
-.wrapper-container
-    overflow: visible
+    &.opacity
+        @media media-min-lg
+            .wrapper:before
+                visibility: visible
+                opacity: 1
+
+.wrapper
+    @media media-min-lg
+        &:before
+            position: fixed
+            top: 0
+            left: 0
+            z-index: 80
+            visibility: hidden
+            width: 100%
+            height: 100%
+            background: var(--color-opacity)
+            content: ''
+            opacity: 0
+            transition: all .2s ease-in-out
+
+    &-container
+        overflow: visible
 
 .js-stickybit-parent
     padding-top: 140px

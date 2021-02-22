@@ -3,7 +3,11 @@
         display: flex
         justify-content: center
         align-items: center
-        height: 100%
+        min-height: 100%
+
+        @media media-max-lg
+            &.on
+                z-index: 200
 
         &__header
             display: flex
@@ -12,11 +16,20 @@
             font-size: 13px
             line-height: 1.1
 
+            @media media-max-lg
+                justify-content: center
+                align-items: center
+                width: 50px
+                height: 50px
+
             &:hover
                 background: none
 
             > div
                 padding-left: 10px
+
+                @media media-max-lg
+                    display: none
 
             .ico
                 width: 22px
@@ -35,6 +48,12 @@
                             color: var(--primary)
 
         &__content
+            top: 100%
+
+            @media media-max-lg
+                top: 0
+                z-index: 100
+
             @media media-min-lg
                 left: -(gap)
                 visibility: hidden
@@ -114,7 +133,7 @@
             font-size: 12px
 
         &__register
-            margin: 0
+            margin: 0 auto
             padding: 0
             border: 0
 

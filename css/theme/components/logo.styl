@@ -1,7 +1,14 @@
 .logo
     .header &
+        align-self: center
         padding-right: 25px
         border-right: solid 1px var(--color-border)
+
+        @media media-min-lg
+            padding-left: 19px
+
+        @media media-max-sm
+            margin-right: auto
 
         img, svg
             height: 58px

@@ -1,0 +1,53 @@
+.product
+    .categories &
+        &__main
+            display: flex
+            flex-flow: column nowrap
+
+            .old-price, .regular-price, .special-price
+                .label
+                    display: none
+
+            .old-price
+                .price
+                    text-decoration: none
+
+                    span
+                        color: var(--color-old-price)
+                        text-decoration: line-through
+                        font-weight: regular
+                        font-size: 14px
+
+            .regular-price, .special-price
+                .price span
+                    color: var(--color-special-price)
+                    font-weight: medium
+                    font-size: 22px
+
+            .product-rate
+                order: -1
+                padding-bottom: 10px
+            .price-box-avista
+                margin-bottom: 0
+                .label, .price
+                    span
+                        font-size: 12px
+                        font-weight: regular
+                        color: var(--color-payment)
+            .preco-parcelado-sem-juros
+                .upto
+                    display: none 
+                .num, .de,.value, .s-juros
+                    span 
+                        font-size: 12px
+                        font-weight: regular
+                        color: var(--color-payment)
+                + .preco-parcelado
+                    display: none
+
+        &__name
+            order: -2
+            margin-bottom: 0
+            color: var(--color-text)
+            font-weight: regular
+            font-size: 15px

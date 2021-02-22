@@ -1,20 +1,32 @@
 .header
+    position: static
     justify-content: space-between
-    align-items: center
+    margin-bottom: 0 !important
+    padding: 10px 0
+    min-width: 0
     gap: gap
 
     @media media-min-lg
-        height: 78px
+        min-height: 78px
+
+    @media media-max-lg
+        padding-right: (gap / 2)
+        gap: 0
 
     &-container
         position: sticky
         top: 0
+        max-width: 100%
+        height: auto
         filter: blur(0)
         box-shadow: none
         transition: all .2s ease-in-out
         transform: translateY(0)
 
+        @media media-max-lg
+            border-bottom: solid 1px var(--color-border)
+
         .scrolling--down &
             @media media-min-lg
                 filter: blur(0)
-                transform: translateY(-78px)
+                transform: translateY(-78px) !important

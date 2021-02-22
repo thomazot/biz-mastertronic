@@ -1,5 +1,17 @@
 @media media-max-lg
     .categories
+        &__show
+            order: -1
+            width: 50px
+            height: 50px
+            border-radius: 0
+            background: none
+            color: var(--primary)
+
+            &:hover
+                background: @background
+                color: @color
+
         .parent
             position: relative
 
@@ -27,7 +39,7 @@
                 align-items: center
                 width: 48px
                 height: 48px
-                background: var(--primary-contrast)
+                color: var(--primary-contrast)
                 font-size: 20px
                 transition: all .2s ease
 
@@ -44,21 +56,124 @@
 @media media-min-lg
     .categories
         flex: 1
-        margin-top: -(gap / 2)
         margin-bottom: 0 !important
         min-width: 0
         background: var(--white)
         box-shadow: 0 0 0 1px var(--color-border)
 
-        .a--0
-            color: var(--primary)
-            text-transform: uppercase
-            white-space: nowrap
-            font-weight: semibold
-            font-size: 14px
+        a:hover
+            box-shadow: none
+
+        .ul--0
+            container()
+
+            justify-content: space-between
+            gap: gap
+
+        .ul--1
+            padding: gap
+
+        .box--1
+            visibility: hidden
+            border-top: solid 2px var(--primary)
+            opacity: 0
+            transition: all .2s ease-in-out
+            transition-delay: .2s
+            transform: translateY(10px)
 
         .li--0
-            order: 1
+            transition: all .2s ease-in-out
+            transition-delay: .3s
+
+            .a--0:after
+                position: absolute
+                bottom: 0
+                left: 50%
+                visibility: hidden
+                border-right: solid 5px transparent
+                border-bottom: solid 5px var(--primary)
+                border-left: solid 5px transparent
+                content: ''
+                opacity: 0
+                transition: all .2s ease-in-out
+                transition-delay: .2s
+                transform: translateX(-50%) translateY(10px)
+
+            &:hover
+                z-index: 10
+
+                .a--0
+                    background: none
+                    color: var(--color-text)
+
+                    &:after
+                        visibility: visible
+                        opacity: 1
+                        transform: translateX(-50%) translateY(0)
+
+                .box--1
+                    visibility: visible
+                    opacity: 1
+                    transform: translateY(0)
+
+        .a--0
+            position: relative
+            background: var(--white)
+            color: var(--color-text)
+            white-space: nowrap
+            font-weight: regular
+            font-size: 14px
+
+            &:hover
+                background: @background
+
+        .a--1
+            color: var(--color-link-categories)
+            font-weight: regular
+            font-size: 14px
+
+            &:hover
+                color: var(--color-text)
 
         &__all
-            order: 2
+            flex: 0 1 215px
+            border-right: solid 1px var(--color-border)
+
+            .all-a--1
+                font-size: 14px
+                font-weight: regular
+                color: var(--color-link-categories)
+
+                &:hover 
+                    color: var(--color-text)
+
+            &.li--0
+                position: relative
+
+                &:hover
+                    .a--0
+                        background: var(--primary-contrast)
+                        color: var(--primary)
+
+                        &:after
+                            right: 16px
+                            left: auto
+                            transform: translateY(0) translateX(0)
+
+            .a--0
+                padding-left: 0
+                min-width: 0
+                background: var(--white)
+                color: var(--primary)
+                font-weight: bold
+
+                > span
+                    display: flex
+                    flex: 1
+                    justify-content: space-between
+                    align-items: center
+
+                .ico
+                    width: 10px
+                    height: 6px
+                    fill: currentColor
