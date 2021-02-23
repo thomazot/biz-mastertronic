@@ -1,0 +1,82 @@
+.best-categories
+    --bg: #f9f9f9
+
+    &
+        margin-top: -(gap / 2)
+        padding: 25px 0
+        background: var(--bg)
+
+    &__header
+        padding: (gap / 2) 0
+        line-height: 1.2
+
+        @media media-min-lg
+            flex: 0 1 215px
+
+    &__title
+        padding-bottom: 10px
+        font-weight: bold
+        font-size: 20px
+
+    &__description
+        color: var(--color-link-categories)
+        font-weight: regular
+        font-size: 14px
+
+    &__container
+        container()
+
+        @media media-min-lg
+            display: flex
+            align-items: center
+            gap: gap
+
+    &__main
+        display: flex
+        flex: 1
+        flex-flow: row wrap
+        min-width: 0
+        background: none
+        gap: 10px
+
+    .categories
+        &, .box--1, .ul--0, .ul--1, .li--0, .li--1
+            display: contents
+
+        .a--0
+            display: none
+
+    .categories .a--1, a
+        display: flex
+        flex: 1 1 130px
+        flex-flow: column nowrap
+        justify-content: flex-start
+        align-items: center
+        padding: (gap / 2)
+        min-width: 0
+        border-radius: 5px
+        background: var(--white)
+        color: var(--color-link-categories)
+        text-align: center
+
+        &:hover
+            box-shadow: 0 0 0 1px var(--primary), 0 2px 0 var(--primary)
+            color: var(--color-text)
+
+        img
+            max-height: 85px
+            object-fit: contian
+
+        .ico
+            margin-top: 14px
+            width: 42px
+            height: 42px
+            fill: var(--primary)
+
+        span
+            display: block
+            flex: 0 0 auto
+            margin-top: auto
+            padding-top: 5px
+            min-height: 0
+            line-height: 1

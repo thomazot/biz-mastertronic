@@ -1,0 +1,34 @@
+.rulers
+    display: flex
+    align-items: center
+    line-height: 1
+
+    strong
+        display: block
+
+    .ico
+        margin-right: 10px
+        width: 40px
+        height: 40px
+        fill: var(--color-icon)
+
+#banner__regua-de-vantagens
+    margin-top: -(gap / 2)
+    border-bottom: solid 1px var(--color-border)
+
+    .banner
+        &__wrapper
+            container()
+
+            width: viewport !important
+
+            .owl-wrapper
+                @media media-min-lg
+                    display: flex
+                    justify-content: space-between
+                    max-width: 100%
+                    gap: (gap / 2)
+
+                    .owl-item
+                        flex: 0 0 auto
+                        width: auto !important
