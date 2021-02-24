@@ -31,3 +31,37 @@
 .banner
     img
         object-fit: cover
+
+#banner__banner-trio
+    margin: gap 0
+
+    @media media-min-lg
+        .banner
+            &__link, &__item
+                display: inline-block
+                width: auto
+
+                img.d_img
+                    position: static
+                    display: block
+                    transform: none
+
+        .owl-item
+            display: inline-block
+            width: auto !important
+
+        .owl-wrapper
+            display: flex
+            justify-content: space-between
+            max-width: 100%
+
+            &:after
+                display: none
+
+        .owl-item
+            flex: 0 0 auto
+
+#banner__banner-one
+    .banner__wrapper
+        display: block
+        column-count: 1 !important

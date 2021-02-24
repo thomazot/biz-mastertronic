@@ -33,14 +33,18 @@
                 display: block
 
     &__case
+        position: relative
         padding: (gap / 2)
         border-radius: 5px
+        background: none
         box-shadow: none
         transition: all .2s ease-in-out
 
         &:hover
             @media media-min-lg
+                z-index: 100
                 box-shadow: 0 0 (gap / 2) rgba(0, 0, 0, .1)
+                backgrond: var(--white)
 
     &__actions
         margin-top: auto
