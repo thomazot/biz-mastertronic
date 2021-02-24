@@ -1430,7 +1430,13 @@ $j(document)
         scrollTop()
         // Categories title
         categoriesTitle()
-
+        // icons
+        addSVG({
+            'z-cart': {
+                selector: '.products__actions .button',
+                mode: 'prepend',
+            },
+        })
         // Menu Categories
         $('.categories .parent').click(function (event) {
             if ($(event.target).hasClass('parent')) {
