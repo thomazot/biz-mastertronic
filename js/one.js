@@ -1436,6 +1436,30 @@ $j(document)
                 selector: '.products__actions .button',
                 mode: 'prepend',
             },
+            'z-phone': {
+                selector: '.mymenu .icon-phone',
+                mode: 'prepend',
+            },
+            'z-whatsapp': {
+                selector: '.mymenu .icon-whatsapp',
+                mode: 'prepend',
+            },
+            'z-email-mini': {
+                selector: '.mymenu .icon-email-mini',
+                mode: 'prepend',
+            },
+            'z-mg': {
+                selector: '.mymenu .icon-mg',
+                mode: 'prepend',
+            },
+            'z-sp': {
+                selector: '.mymenu .icon-sp',
+                mode: 'prepend',
+            },
+            'z-rj': {
+                selector: '.mymenu .icon-rj',
+                mode: 'prepend',
+            },
         })
         // Menu Categories
         $('.categories .parent').click(function (event) {

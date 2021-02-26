@@ -1,0 +1,112 @@
+.footer
+    .flex
+        margin: 0
+
+    &-container
+        @media media-max-lg
+            text-align: center
+
+        .pays
+            img
+                height: 32px
+
+        .flex--a-center
+            @media media-max-lg
+                justify-content: center
+
+    &__payment
+        .footer__content
+            @media media-min-lg
+                display: flex
+
+                .pays + .pays
+                    margin-left: (gap / 2)
+                    padding-left: (gap / 2)
+                    border-left: solid 1px var(--color-border)
+
+    &__security
+        .footer__content
+            @media media-min-lg
+                margin-top: -30px
+
+    &__title
+        padding: (gap / 2) 0
+        font-weight: medium
+        font-size: 16px
+
+    &__col
+        @media media-min-lg
+            display: flex
+            align-items: flex-start
+
+            .mymenu
+                &:first-child
+                    padding-right: gap
+
+                &:last-child
+                    padding-left: gap
+                    border-left: solid 1px var(--color-input)
+
+    &__container
+        container()
+
+    &__ops
+        padding: gap 0
+        font-weight: regular
+        font-size: 13px
+        opacity: .5
+
+    &__row
+        @media media-min-lg
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+            gap: gap
+
+    &__payment-security
+        padding: (gap / 2) 0
+        border-top: solid 1px var(--color-border)
+        border-bottom: solid 1px var(--color-border)
+
+        .footer__container
+            @media media-min-lg
+                display: flex
+                justify-content: space-between
+                align-items: flex-start
+                gap: gap
+
+            .pays + .pays
+                @media media-max-lg
+                    padding-top: (gap / 2)
+
+    &__text, &__copyright
+        opacity: .5
+
+        &, a
+            padding: (gap / 2) 0
+            color: var(--color-text)
+            text-align: center
+            font-weight: regular
+            font-size: 12px
+
+    &__copyright
+        border-top: solid 1px var(--color-border)
+
+    .mymenu
+        .a--0
+            color: var(--color-text)
+            font-weight: regular
+            font-size: 14px
+
+        .icon-phone
+            &:before
+                display: none
+
+        [class*=icon-]
+            .ico
+                display: inline-block
+                margin-right: 3px
+                width: 20px
+                height: 20px
+                vertical-align: middle
+                fill: var(--primary)

@@ -1,0 +1,33 @@
+<div class="footer__row">
+    <div class="footer__box">
+        <h3 class="footer__title">Institucional</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-institucional"}}
+        </div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Tire suas Dúvidas</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-duvidas"}}
+        </div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Atendimento</h3>
+        <div class="footer__content">
+            <div class="footer__col">
+                {{block type="menubuilder/output" identifier="footer-telefones"}}
+                {{block type="menubuilder/output" identifier="footer-contato"}}
+            </div>
+            <div class="footer__ops">
+                Segunda-feira à Sexta das 09:00 às 17:00 (exceto feriados)
+            </div>
+        </div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Redes Sociais</h3>
+        <div class="footer__content">
+            {{widget type="interface/widget_social" template="interface/widgets/social.phtml" identificador="socials" redes="all"}}
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmastertronicpro%2F&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=1423771190995514" width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+    </div>
+</div>
