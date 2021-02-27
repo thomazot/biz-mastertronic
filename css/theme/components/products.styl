@@ -49,44 +49,6 @@
                 box-shadow: 0 0 (gap / 2) rgba(0, 0, 0, .1)
                 backgrond: var(--white)
 
-    &__actions
-        margin-top: auto
-
-        @media media-min-lg
-            visibility: hidden
-            opacity: 0
-            transition: all .2s ease-in-out
-            transform: translateY(5px)
-
-            .products__case:hover &
-                visibility: visible
-                opacity: 1
-                transform: translateY(0)
-
-        .button
-            display: flex
-            justify-content: center
-            align-items: center
-            padding: 0
-            width: 100%
-            height: 44px
-            border-radius: 2px
-            background: var(--button)
-            box-shadow: none
-            text-transform: uppercase
-            text-shadow: none
-            font-weight: medium
-            font-size: 14px
-
-            .ico
-                margin-right: 5px
-                width: 23px
-                height: 23px
-
-    &__main
-        display: flex
-        flex-flow: column nowrap
-
         .old-price, .regular-price, .special-price, .minimal-price
             .label
                 display: none
@@ -133,6 +95,44 @@
             + .preco-parcelado
                 display: none
 
+    &__actions
+        margin-top: auto
+
+        @media media-min-lg
+            visibility: hidden
+            opacity: 0
+            transition: all .2s ease-in-out
+            transform: translateY(5px)
+
+            .products__case:hover &
+                visibility: visible
+                opacity: 1
+                transform: translateY(0)
+
+        .button
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0
+            width: 100%
+            height: 44px
+            border-radius: 2px
+            background: var(--button)
+            box-shadow: none
+            text-transform: uppercase
+            text-shadow: none
+            font-weight: medium
+            font-size: 14px
+
+            .ico
+                margin-right: 5px
+                width: 23px
+                height: 23px
+
+    &__main
+        display: flex
+        flex-flow: column nowrap
+
     &__name
         order: -2
         margin-bottom: 0
@@ -142,3 +142,93 @@
 
     .cms-home .main &
         margin: gap 0
+
+    &__items
+        color: var(--color-gray)
+        font-weight: regular
+        font-size: 13px
+
+        li
+            display: flex
+            align-items: center
+
+            &:before
+                display: inline-block
+                margin-right: 8px
+                width: 4px
+                height: 4px
+                border-radius: 50%
+                background: @color
+                content: ''
+
+    &__more
+        margin: 10px 0
+        color: var(--color-more)
+        font-weight: reuglar
+        font-size: 13px
+
+    &__adds
+        display: flex
+        align-items: center
+
+        a
+            padding: 5px
+            color: #848484
+            font-weight: regular
+            font-size: 11px
+
+        .link-wishlist
+            display: flex
+            align-items: center
+
+            .ico
+                margin-top: -2px
+                margin-right: 3px
+                width: 13px
+                height: 11px
+                fill: currentColor
+
+    &__payments
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 5px 0
+        padding: 0 gap
+        height: 38px
+        border-radius: 3px
+        background: #f5f5f5
+        color: var(--color-link)
+        font-weight: regular
+        font-size: 13px
+
+        @media media-max-sm
+            padding: 0
+
+        .ico
+            margin-right: 10px
+            width: 22px
+            height: 17px
+            fill: var(--color-more)
+
+    &__list
+        .products
+            &__main
+                flex: 1
+                min-width: 0
+
+            &__header
+                img
+                    height: 200px
+                    object-fit: contain
+
+            &__case
+                gap: gap
+
+                @media media-max-lg
+                    display: block
+
+            &__actions
+                visibility: visible
+                margin: 0
+                opacity: 1
+                transform: none

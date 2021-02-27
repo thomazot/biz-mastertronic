@@ -1460,6 +1460,10 @@ $j(document)
                 selector: '.mymenu .icon-rj',
                 mode: 'prepend',
             },
+            'z-heart': {
+                selector: '.products__adds .link-wishlist',
+                mode: 'prepend',
+            },
         })
         // Menu Categories
         $('.categories .parent').click(function (event) {

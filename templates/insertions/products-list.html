@@ -1,0 +1,40 @@
+<h2 class="products__header">
+    <a href="@url" itemprop="url" title="Mais detalhes" class="product-link">
+        <span class="products__image product-image">@foto(260x260)</span>
+    </a>
+</h2>
+<div class="products__main">
+    <span class="products__label-fixed">
+        @selos
+    </span>
+	<a href="@url" title="@nome(60)" class="products__name">@nome</a>
+	@avaliacoes
+    <ul class="products__items">
+        <li>Sensor Full-Frame Exmor R BSI CMOS de 24MP</li>
+        <li>Processador de Imagem BIONZ X e LSI Front-End</li>
+        <li>Sistema AF de 693 pontos híbrido</li>
+    </ul>
+    <a href="#" class="products__more">Ver mais (+)</a>
+</div>
+<div class="products__actions">
+    <div class="products__prices">
+    @if(is_disponivel)
+		@preco
+        @preco(avista)
+        @preco(parcelado)
+    @else(is_disponivel)
+        <div class="products__out">Produto Esgotado</div>
+    @endif(is_disponivel)
+    </div>
+    <div class="products__action">
+        <span class="products__payments">
+            <svg class="ico z-cards"><use xlink:href="#z-cards" /></svg>
+            <span>Parcelamento Inteligente</span>
+        </span>
+        @bt(comprar "Comprar")
+        <div class="products__adds">
+            @bt(comparar "Compare")
+            @bt(listadesejos "Adicionar à lista")
+        </div>
+    </div>
+</div>
