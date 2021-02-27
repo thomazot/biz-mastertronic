@@ -1,2 +1,67 @@
 .cms-home .header-container + .banner
-    margin: 0
+    margin-top: -(gap / 2)
+
+    &__wrapper
+        position: relative
+
+    .owl
+        &-controls
+            position: absolute
+            bottom: 0
+            left: 0
+            z-index: 20
+            padding-bottom: (gap / 2)
+            width: 100%
+
+        &-page
+            span
+                max-width: 6px
+                width: 23px
+                height: 6px
+                border-radius: 6px
+                background: var(--color-input)
+                opacity: 1
+                transition: all .2s ease-in-out
+
+            &.active
+                span
+                    max-width: 23px
+                    background: var(--primary)
+
+.banner
+    img
+        object-fit: cover
+
+#banner__banner-trio
+    margin: gap 0
+
+    @media media-min-lg
+        .banner
+            &__link, &__item
+                display: inline-block
+                width: auto
+
+                img.d_img
+                    position: static
+                    display: block
+                    transform: none
+
+        .owl-item
+            display: inline-block
+            width: auto !important
+
+        .owl-wrapper
+            display: flex
+            justify-content: space-between
+            max-width: 100%
+
+            &:after
+                display: none
+
+        .owl-item
+            flex: 0 0 auto
+
+#banner__banner-one
+    .banner__wrapper
+        display: block
+        column-count: 1 !important

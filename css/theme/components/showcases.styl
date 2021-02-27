@@ -1,0 +1,47 @@
+.showcases
+    --bg: #f8f8f8
+
+    &
+        background: var(--bg)
+
+    a
+        color: var(--color-link)
+        font-weight: regular
+        font-size: 14px
+
+        &:hover
+            color: var(--primary)
+
+        &.showcases__name
+            color: var(--blue)
+            font-size: 20px
+
+        &.showcases__more
+            color: var(--blue)
+
+    img
+        width: 225px
+        height: 180px
+        object-fit: contain
+
+    &__container
+        container()
+
+        padding: (gap * 2) 0
+
+    &__list
+        display: flex
+        flex-flow: row wrap
+        gap: gap
+
+    &__item
+        display: flex
+        flex: 1 1 390px
+        align-items: center
+        padding: (gap / 2)
+        min-width: 0
+        background: var(--white)
+        gap: gap
+
+    &__figure
+        flex: 0 1 50%

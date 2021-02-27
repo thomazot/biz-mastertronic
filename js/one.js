@@ -359,7 +359,6 @@
                 .on('click', '.myaccount__header', function (e) {
                     if (is992()) {
                         $j(this).parent().addClass('on')
-                        hideHeader(true)
                         lockBody(true)
 
                         if (
@@ -380,7 +379,6 @@
                 })
                 .on('click', '.myaccount__hide', function () {
                     $j(this).closest('.myaccount').removeClass('on')
-                    hideHeader(false)
                     lockBody(false)
                 })
                 .ready(function () {
@@ -1044,19 +1042,15 @@ function is468() {
  */
 function hideHeader(status) {
     if (status) {
-        $j('.header-container').animate(
-            {
-                top: '-' + $j('.header-container').outerHeight() + 'px',
-            },
-            200
-        )
+        gsap.to('.header-container', {
+            duration: 0.1,
+            y: -$j('.header-container').outerHeight(),
+        })
     } else {
-        $j('.header-container').animate(
-            {
-                top: '0px',
-            },
-            200
-        )
+        gsap.to('.header-container', {
+            duration: 0.1,
+            y: 0,
+        })
     }
     return false
 }
@@ -1235,7 +1229,7 @@ $j.fn.neonTheme.custom = {
     m_search: true, // ativa o responsivo da Busca
     m_filters: true, // ativa o responsivo dos Filtros do Catálogo
     m_myaccount: true, // ativa o responsivo da Minha Conta
-    m_mycart: true, // ativa o responsivo do Meu Carrinho
+    m_mycart: false, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
     m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
@@ -1428,6 +1422,7 @@ function createRootVariableRGB() {
 $j(document)
     .ready(function ($) {
         // document.ready
+        const body = $('body')
         // Create variable rgb
         createRootVariableRGB()
 
@@ -1435,12 +1430,106 @@ $j(document)
         scrollTop()
         // Categories title
         categoriesTitle()
-
+        // icons
+        addSVG({
+            'z-cart': {
+                selector: '.products__actions .button',
+                mode: 'prepend',
+            },
+            'z-phone': {
+                selector: '.mymenu .icon-phone',
+                mode: 'prepend',
+            },
+            'z-whatsapp': {
+                selector: '.mymenu .icon-whatsapp',
+                mode: 'prepend',
+            },
+            'z-email-mini': {
+                selector: '.mymenu .icon-email-mini',
+                mode: 'prepend',
+            },
+            'z-mg': {
+                selector: '.mymenu .icon-mg',
+                mode: 'prepend',
+            },
+            'z-sp': {
+                selector: '.mymenu .icon-sp',
+                mode: 'prepend',
+            },
+            'z-rj': {
+                selector: '.mymenu .icon-rj',
+                mode: 'prepend',
+            },
+        })
         // Menu Categories
         $('.categories .parent').click(function (event) {
             if ($(event.target).hasClass('parent')) {
                 $(event.target).toggleClass('on')
             }
+        })
+
+        $('.header-container .categories .ul--0')
+            .mouseenter(function () {
+                body.addClass('opacity')
+            })
+            .mouseleave(function () {
+                body.removeClass('opacity')
+            })
+
+        const wrapper = $('.wrapper')
+
+        function actionMycart(expanded) {
+            if (expanded === 'true') lockBody(true)
+            else lockBody(false)
+            $('.mycart__wrapper').attr('aria-expanded', expanded)
+        }
+
+        $('.header .mycart').each(function () {
+            const header = $(this).find('.mycart__header')
+            const mycartContent = $(this).find('.mycart__content')
+            const content = $(
+                '<div class="mycart__wrapper" aria-expanded="false"></div>'
+            ).append(mycartContent)
+            const buttonClose = $(
+                '<button class="mycart__close" type="button">Fechar</button>'
+            )
+            const priceTotal = mycartContent.find('.regular-price .price')
+                .length
+                ? mycartContent.find('.regular-price .price').html()
+                : 'R$ 0,00'
+
+            $('.header .mycart__header .price').html(priceTotal)
+
+            mycartContent.prepend(buttonClose)
+            wrapper.append(content)
+
+            header.click(function (event) {
+                event.preventDefault()
+                const expanded =
+                    content.attr('aria-expanded') === 'true' ? 'false' : 'true'
+                actionMycart(expanded)
+            })
+
+            buttonClose.click(function (event) {
+                event.preventDefault()
+                const expanded =
+                    content
+                        .closest('.mycart__wrapper')
+                        .attr('aria-expanded') === 'true'
+                        ? 'false'
+                        : 'true'
+                actionMycart(expanded)
+            })
+
+            content.click(function (event) {
+                if ($(event.target).hasClass('mycart__wrapper')) {
+                    const expanded =
+                        content.attr('aria-expanded') === 'true'
+                            ? 'false'
+                            : 'true'
+                    actionMycart(expanded)
+                }
+            })
         })
     })
     .on('resizeStop', function (e) {

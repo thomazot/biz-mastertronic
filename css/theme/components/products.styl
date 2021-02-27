@@ -1,0 +1,144 @@
+.product, .products
+    .owl-pagination
+        display: none
+
+    .owl-wrapper-outer
+        margin: -(gap / 2)
+        padding: (gap / 2)
+        max-width: none !important
+        width: auto !important
+
+    &__list
+        margin: 0
+
+    &__brands
+        position: absolute
+        top: 10px
+        left: 5px
+
+        img
+            max-height: 33px
+            width: auto
+            height: auto
+
+    &__title
+        margin-bottom: (gap / 2)
+        padding: (gap / 2) 0
+        border-bottom: solid 1px var(--color-border)
+        font-weight: regular
+        font-size: 22px
+
+        a
+            color: var(--color-more)
+            font-size: 14px
+
+            @media media-max-sm
+                display: block
+
+    &__case
+        position: relative
+        padding: (gap / 2)
+        border-radius: 5px
+        background: none
+        box-shadow: none
+        transition: all .2s ease-in-out
+
+        &:hover
+            @media media-min-lg
+                z-index: 100
+                box-shadow: 0 0 (gap / 2) rgba(0, 0, 0, .1)
+                backgrond: var(--white)
+
+    &__actions
+        margin-top: auto
+
+        @media media-min-lg
+            visibility: hidden
+            opacity: 0
+            transition: all .2s ease-in-out
+            transform: translateY(5px)
+
+            .products__case:hover &
+                visibility: visible
+                opacity: 1
+                transform: translateY(0)
+
+        .button
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0
+            width: 100%
+            height: 44px
+            border-radius: 2px
+            background: var(--button)
+            box-shadow: none
+            text-transform: uppercase
+            text-shadow: none
+            font-weight: medium
+            font-size: 14px
+
+            .ico
+                margin-right: 5px
+                width: 23px
+                height: 23px
+
+    &__main
+        display: flex
+        flex-flow: column nowrap
+
+        .old-price, .regular-price, .special-price, .minimal-price
+            .label
+                display: none
+
+        .old-price
+            .price
+                text-decoration: none
+
+                span
+                    color: var(--color-old-price)
+                    text-decoration: line-through
+                    font-weight: regular
+                    font-size: 14px
+
+        .regular-price, .special-price, .minimal-price
+            .price span
+                color: var(--color-special-price)
+                font-weight: medium
+                font-size: 22px
+
+        .product-rate
+            order: -1
+            padding-bottom: 10px
+
+        .price-box-avista
+            margin-bottom: 0
+
+            .label, .price
+                span
+                    color: var(--color-payment)
+                    font-weight: regular
+                    font-size: 12px
+
+        .preco-parcelado-sem-juros
+            .upto
+                display: none
+
+            .num, .de, .value, .s-juros
+                span
+                    color: var(--color-payment)
+                    font-weight: regular
+                    font-size: 12px
+
+            + .preco-parcelado
+                display: none
+
+    &__name
+        order: -2
+        margin-bottom: 0
+        color: var(--color-text)
+        font-weight: regular
+        font-size: 15px
+
+    .cms-home .main &
+        margin: gap 0
