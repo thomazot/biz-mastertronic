@@ -1,0 +1,53 @@
+.filters
+    > .title
+        @media media-min-lg
+            display: none
+
+    .label
+        color: var(--color-text)
+        font-weight: regular
+        font-size: 14px
+
+        &:before
+            display: inline-block
+            margin-top: -2px
+            margin-right: 5px
+            width: 15px
+            height: 15px
+            border: solid 1px var(--color-border)
+            border-radius: 2px
+            content: ''
+            vertical-align: middle
+
+    .ul--0
+        @media media-max-lg
+            padding: (gap / 2) 0
+
+    .li--0:hover
+        .label:before
+            border-color: var(--primary)
+            background: var(--primary)
+
+    &__list
+        @media media-max-lg
+            background: var(--white)
+
+    &__swatches
+        .label
+            &:before
+                display: none
+
+    &__filter
+        padding: (gap / 2) 0
+        box-shadow: none
+
+        &:hover
+            box-shadow: none
+
+    &__name
+        padding: (gap / 2) 0
+        border-bottom: solid 1px var(--color-border)
+        background: url(down) no-repeat center right 10px
+        color: var(--color-text)
+        font-weight: medium
+        font-size: 14px
