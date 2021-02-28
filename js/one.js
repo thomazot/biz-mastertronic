@@ -1464,6 +1464,14 @@ $j(document)
                 selector: '.products__adds .link-wishlist',
                 mode: 'prepend',
             },
+            'z-clear': {
+                selector: '.filters__filtered .btn--close',
+                mode: 'html',
+            },
+            'z-pipe': {
+                selector: '.breadcrumb__sep',
+                mode: 'html',
+            },
         })
         // Menu Categories
         $('.categories .parent').click(function (event) {
@@ -1535,6 +1543,16 @@ $j(document)
                 }
             })
         })
+
+        if ($('.catalog-description .categories').length) {
+            $('.catalog-description .categories .ul--0').owlCarousel({
+                itemsScaleUp: true,
+                items: 4,
+                navigation: true,
+                navigationText: ['?', '?'],
+                pagination: false,
+            })
+        }
     })
     .on('resizeStop', function (e) {
         // Safe window.resize

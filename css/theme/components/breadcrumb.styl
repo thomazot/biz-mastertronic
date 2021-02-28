@@ -1,0 +1,32 @@
+.breadcrumb
+    margin-top: -(gap / 2)
+    padding: 10px 0
+    background: #f5f5f5
+
+    &__list
+        container()
+
+    &__home .breadcrumb__link:before
+        display: none
+
+    &__sep
+        padding: 0 10px
+
+        .ico
+            width: 4px
+            height: 12px
+            fill: var(--color-text)
+
+    &__link, &__last
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 35px
+        color: var(--color-text)
+        font-weight: medium
+        font-size: 14px
+
+    &__last
+        padding: 0 (gap / 2)
+        border-radius: 2px
+        background: var(--white)
