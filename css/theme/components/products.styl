@@ -222,13 +222,27 @@
                     object-fit: contain
 
             &__case
+                padding: 0
+                box-shadow: 0 0 0 1px var(--color-border)
                 gap: gap
 
                 @media media-max-lg
                     display: block
+                    padding: (gap / 2)
+
+                @media media-min-lg
+                    &:hover
+                        box-shadow: 0 0 0 1px var(--color-border), 0 0 ((gap / 2)) rgba(0, 0, 0, .2)
+                        backgrond: var(--white)
 
             &__actions
                 visibility: visible
                 margin: 0
                 opacity: 1
+                transition: none
                 transform: none
+
+                @media media-min-lg
+                    align-self: stretch
+                    padding: (gap / 2)
+                    border-left: solid 1px var(--color-border)

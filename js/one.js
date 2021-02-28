@@ -1222,7 +1222,7 @@ $j.fn.neonTheme.custom = {
     fix_IE_SVGs: true, // corrige as dimensões de SVGs inline no IE
     fix_zoomHeader: true, // corrige o z-index do .header e do zoom dos produtos no :hover de cada um
     fix_address_phone: true, // corrige a exibição do ícone de telefone nas listagens de endereços
-    fix_category_description: true, // troca a posição padrão da descrição da categoria
+    fix_category_description: false, // troca a posição padrão da descrição da categoria
     fix_catalog_flexbox: true, // adiciona elementos para arrumar o flexbox do catálogo
     /* - Responsivo */
     m_categories: true, // ativa o responsivo do Menu de Categorias
@@ -1464,6 +1464,14 @@ $j(document)
                 selector: '.products__adds .link-wishlist',
                 mode: 'prepend',
             },
+            'z-clear': {
+                selector: '.filters__filtered .btn--close',
+                mode: 'html',
+            },
+            'z-pipe': {
+                selector: '.breadcrumb__sep',
+                mode: 'html',
+            },
         })
         // Menu Categories
         $('.categories .parent').click(function (event) {
@@ -1535,6 +1543,22 @@ $j(document)
                 }
             })
         })
+
+        if ($('.catalog-description .categories').length) {
+            $('.catalog-description .categories .ul--0').owlCarousel({
+                itemsScaleUp: true,
+                items: 4,
+                navigation: true,
+                navigationText: ['?', '?'],
+                pagination: false,
+            })
+        }
+
+        const categoryDescription = $('.category-description')
+
+        if (categoryDescription.length) {
+            $('.newsletter').before(categoryDescription.show())
+        }
     })
     .on('resizeStop', function (e) {
         // Safe window.resize

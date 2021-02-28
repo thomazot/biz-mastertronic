@@ -1,0 +1,59 @@
+.category-title
+    display: none
+
+.catalog-category-view
+    .col-left
+        @media media-min-lg
+            padding-right: (gap / 2)
+            border-right: solid 1px var(--color-border)
+
+    .main-container
+        @media media-min-lg
+            max-width: 100%
+            width: auto
+            border-bottom: solid 1px var(--color-border)
+
+            .main
+                container()
+
+    [id*=banner__catalogo-]
+        margin: gap 0
+
+        .banner__wrapper
+            container()
+
+            width: viewport !important
+
+        @media media-min-lg
+            .owl-wrapper
+                display: flex
+                width: 100%
+                gap: (gap / 2)
+
+            img
+                width: 100% !important
+                object-fit: cover
+
+.category-description
+    padding: 0 0 gap
+    border: 0
+
+    container()
+
+    &.std
+        color: #989898
+        font-weight: regular
+        font-size: 14px
+
+        h3
+            color: var(--color-more)
+            font-weight: bold
+            font-size: 14px
+
+        .blue
+            color: var(--color-more)
+
+        a
+            color: #007cff
+            font-weight: regular
+            font-size: 14px
