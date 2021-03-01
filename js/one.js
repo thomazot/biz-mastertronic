@@ -1472,6 +1472,18 @@ $j(document)
                 selector: '.breadcrumb__sep',
                 mode: 'html',
             },
+            'z-heart': {
+                selector: '.prod__socials .link-wishlist a',
+                mode: 'html',
+            },
+            'z-cart': {
+                selector: '.prod__call-to-actions .button',
+                mode: 'prepend',
+            },
+            'z-plus': {
+                selector: '.jointsales .more',
+                mode: 'html',
+            },
         })
         // Menu Categories
         $('.categories .parent').click(function (event) {
@@ -1559,6 +1571,58 @@ $j(document)
         if (categoryDescription.length) {
             $('.newsletter').before(categoryDescription.show())
         }
+
+        const prodImg = $('.prod__img')
+        if (prodImg.length) {
+            prodImg.prepend($('.breadcrumb'))
+        }
+
+        if ($('.product-image-thumbs .video').length) {
+            $('.prod__socials-play').addClass('on')
+            $('.prod__socials-play').click(function (event) {
+                event.preventDefault()
+                $('.product-image-thumbs .video-thumb').each(function () {
+                    this.click()
+                })
+            })
+        }
+
+        const payments = $('.prod__payments .parcelamento')
+        if (payments.length) {
+            payments.find('li').each(function () {
+                if ($(this).find('.valor-total').length === 0) {
+                    const parcela = parseInt($(this).find('.parcela').text())
+                    const price = parseFloat(
+                        $(this)
+                            .find('.valor')
+                            .text()
+                            .replace('R$', '')
+                            .replace(',', '.')
+                    )
+
+                    $(this).append(
+                        '<div class="valor-total"> R$ ' +
+                            (price * parcela).toFixed(2).replace('.', ',') +
+                            '</div>'
+                    )
+                }
+                const buttonBuy = $('<button type="button">Comprar</button>')
+                $(this).append($(`<div class="buy"></div>`).append(buttonBuy))
+
+                buttonBuy.click(function () {
+                    $('.prod__call-to-actions .add-to-cart-btn').trigger(
+                        'click'
+                    )
+                })
+            })
+        }
+
+        $('.jointsales__row').each(function () {
+            $(
+                '.jointsales__totals, .jointsales__payments, .jointsales__action',
+                this
+            ).wrapAll('<div class="jointsales__center">')
+        })
     })
     .on('resizeStop', function (e) {
         // Safe window.resize

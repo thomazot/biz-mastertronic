@@ -1,0 +1,365 @@
+.catalog-product-view
+    --bg-gray: #fafafa
+
+#product_addtocart_form
+    gap: (gap * 2)
+
+.prod
+    &__img, &__shop
+        flex: 1
+        padding-bottom: gap
+        min-width: 0
+
+    &__img
+        position: relative
+
+        @media media-min-lg
+            box-shadow: 1px 0 0 var(--color-border)
+
+        &-container
+            position: relative
+
+        .product-image
+            width: auto
+            height: 320px
+            pointer-events: none
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: contain
+                object-position: center center
+
+            @media media-min-lg
+                height: 600px
+
+            @media media-max-lg
+                margin: 0 -16px
+
+        .more-views
+            margin-top: 4px
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: contain
+
+            .product-image-thumbs
+                margin: 0
+                gap: 4px
+
+                .video
+                    display: none
+
+                li
+                    padding: 0
+                    background: var(--bg-gray)
+
+                .thumb-link
+                    border-bottom: solid 2px var(--white)
+                    border-radius: 0
+
+                    &, &:hover, &.on
+                        box-shadow: none
+
+                    &:hover, &.on
+                        border-bottom-color: var(--primary)
+
+    &__shop
+        .rating-box
+            display: flex
+            align-items: center
+
+        .regular-price, .special-price, .old-price
+            .label
+                display: none
+
+        .old-price
+            .price span
+                color: var(--color-old-price)
+                font-weight: regular
+                font-size: 17px
+
+        .regular-price, .special-price
+            .price
+                span
+                    color: var(--color-special-price)
+                    font-weight: medium
+                    font-size: 25px
+
+        .price-box-avista
+            margin-bottom: 0
+
+            .label, .price
+                span
+                    color: var(--color-payment)
+                    font-weight: regular
+                    font-size: 12px
+
+        .preco-parcelado-sem-juros
+            .upto
+                display: none
+
+            .num, .de, .value, .s-juros
+                span
+                    color: var(--color-payment)
+                    font-weight: regular
+                    font-size: 12px
+
+            + .preco-parcelado
+                display: none
+
+    &__items
+        padding: (gap / 2) 0 5px
+        color: #7d7d7d
+        font-weight: regular
+        font-size: 13px
+
+        li
+            display: flex
+            align-items: center
+
+            &:before
+                display: inline-block
+                margin-right: 5px
+                width: 4px
+                height: 4px
+                border-radius: 50%
+                background: @color
+                content: ''
+
+    &__more
+        color: #007cff
+        font-weight: regular
+        font-size: 13px
+
+    &__actions
+        padding: (gap / 2) 0
+
+        @media media-min-lg
+            display: flex
+            gap: gap
+
+    &__socials
+        position: absolute
+        top: 0
+        right: 0
+        display: flex
+        flex-flow: column nowrap
+        padding: 8px
+        gap: 8px
+
+        &-play, &-rede
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0
+            width: 50px
+            height: 50px
+            border: solid 1px #eee
+            border-radius: 50%
+            background: var(--white)
+            box-shadow: none
+            color: #1947a9
+
+            .ico
+                width: 20px
+                height: 20px
+                fill: currentColor
+
+            &:hover
+                background: var(--primary)
+                color: var(--primary-contrast)
+
+        &-play
+            display: none
+
+            &.on
+                display: flex
+
+    &__name
+        h1
+            padding: 10px 0 5px
+            font-weight: medium
+            font-size: 24px
+            line-height: 1
+
+        .sku
+            display: block
+            padding: 5px 0
+            text-transform: uppercase
+
+    &__prices, &__call-to-actions
+        flex: 1
+        min-width: 0
+
+    &__call-to-actions
+        flex: 0 1 270px
+
+        .qty-wrapper
+            display: none !important
+
+        .add-to-cart-btn
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0
+            border-radius: 0
+            box-shadow: none
+            text-transform: uppercase
+            font-weight: medium
+            font-size: 14px
+
+            .ico
+                margin-right: 5px
+                width: 23px
+                height: 22px
+
+    &__payments
+        &-title
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: (gap / 2) 10px
+            border: solid 1px var(--color-border)
+            background: #f7f7f7
+            color: var(--blue)
+            font-weight: medium
+            font-size: 18px
+
+            @media (max-width: 500px)
+                font-size: 14px
+
+            .ico
+                margin-right: 10px
+                width: 36px
+                height: 28px
+
+        .parcelamento
+            box-shadow: 0 0 0 1px var(--color-border)
+
+            ul
+                display: flex
+                flex-flow: column nowrap
+                overflow: auto
+                padding: 1px
+                max-height: 200px
+                width: auto
+                column-count: 1
+
+            li
+                display: grid
+                padding: 0
+                border: 0
+                background: var(--white)
+                box-shadow: 0 0 0 1px var(--color-border)
+                grid-template-columns: 2fr 1fr 2fr 1fr
+
+                @media (max-width: 500px)
+                    grid-template-columns: 1fr 1fr
+
+                > div
+                    display: flex
+                    order: 1
+                    justify-content: center
+                    align-items: center
+                    padding: 10px
+                    height: 100%
+                    box-shadow: 1px 0 0 var(--color-border)
+                    text-align: center
+
+                    &.parcela
+                        .num, .sep
+                            color: #737373
+                            font-weight: regular
+                            font-size: 14px
+
+                        .sep
+                            padding: 0 3px
+
+                        .valor
+                            color: var(--blue)
+                            font-weight: medium
+                            font-size: 14px
+
+                    &.valor-total
+                        flex: 0 0 auto
+                        order: 2
+
+                        .label
+                            display: none
+
+                        &, .value
+                            color: var(--blue)
+                            font-weight: medium
+                            font-size: 14px
+
+                    &.s-juros, &.juros
+                        background: none
+                        color: #3aad2a
+                        font-weight: medium
+                        font-style: normal
+                        font-size: 14px
+
+                    &.buy
+                        order: 3
+
+                        button
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                            padding: 0 10px
+                            height: 30px
+                            border: solid 1px #8f8f8f
+                            background: none
+                            box-shadow: none
+                            color: #8f8f8f
+                            font-weight: regular
+                            font-size: 12px
+
+                            &:hover
+                                border-color: var(--blue)
+                                color: var(--blue)
+
+                    @media (max-width: 500px)
+                        box-shadow: 1px 1px 0 var(--color-border)
+
+                        &.s-juros, &.juros, &.valor-total
+                            display: none
+
+.product-view
+    margin-top: -(gap / 2)
+
+.product-image-gallery
+    height: 100%
+    box-shadow: none
+
+.zoomContainer
+    pointer-events: none
+
+.product-essential
+    &:after
+        display: block
+        height: 1px
+        background: var(--color-border)
+        content: ''
+
+        shadowBorder()
+
+.product-collateral
+    .tabs
+        &__tab
+            @media media-min-sm
+                display: none
+
+        &__content
+            border: 0
+            background: var(--black)
+
+            @media media-min-sm
+                padding: (gap / 2) 0
+
+                shadowBorder()
+
+            &, .std
+                color: var(--white)

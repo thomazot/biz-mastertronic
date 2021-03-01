@@ -1,0 +1,68 @@
+<div class="prod__img">
+    <div class="prod__img-container">
+        @fotos
+        @selos
+        <div class="prod__socials">
+            @links
+            <button class="prod__socials-play" type="button">
+                <svg class="ico z-play"><use xlink:href="#z-play" /></svg>
+            </button>
+            <button onclick="modal_open('prod__share')" class="prod__socials-rede" type="button">
+                <svg class="ico z-social"><use xlink:href="#z-social" /></svg>
+            </button>
+
+            <div id="prod__share" class="share">@compartilhar</div>
+            <script>modal('prod__share');</script>
+        </div>
+    </div>
+</div>
+<div class="prod__shop">	
+	<div class="col">	
+		<div class="prod__name">
+            @marca
+			<h1>@nome</h1>
+			<small class="sku">Cód.: @atributo(sku)</small>
+		</div>
+
+        @avaliacoes
+
+        <ul class="prod__items">
+            <li>Sensor Full-Frame Exmor R BSI CMOS de 24MP</li>
+            <li>Processador de Imagem BIONZ X e LSI Front-End</li>
+            <li>Sistema AF de 693 pontos híbrido</li>
+        </ul>
+        <a class="prod__more">Ver mais (+)</a>
+
+        @variacoes
+
+		@if(is_disponivel)
+            <div class="prod__actions">
+                <div class="prod__prices">
+                    @preco
+                    @preco(avista)
+                    @preco(parcelado)	
+                </div>
+                <div class="prod__call-to-actions">
+                    @bt(comprar "Comprar agora")
+                    @brinde
+                </div>
+            </div>
+        
+            @simulador-frete
+
+            <div class="prod__payments">
+                <div class="prod__payments-title">
+                    <svg class="ico z-cards"><use xlink:href="#z-cards" /></svg>
+                    <span>Parcelamento inteligente</span>
+                </div>
+                @parcelamento
+            </div>
+		@else(is_disponivel)		
+			<div class="prod__esgotado">
+				<div class="title title--sm">Produto Esgotado</div>
+				@alertas
+			</div>
+		@endif(is_disponivel)
+
+	</div>
+</div>

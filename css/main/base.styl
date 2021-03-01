@@ -3447,31 +3447,7 @@ body.ie .owl-prev:before, body.ie .owl-next:before
 .add-to-cart-btn.no-qty
     padding: 0 1rem
 
-/* @links */
-.add-to-links li:not(:last-child)
-    margin-bottom: .25rem
-
-.add-to-links a
-    display: block
-    padding: .5rem
-    border-radius: 3px
-    background: #fff
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
-    color: rgba(0, 0, 0, .7)
-    text-align: center
-    font-weight: 600
-    font-size: .8rem
-
-.add-to-links a:hover
-    background: color1_bg
-    color: color1_font
-
 /* @fotos */
-.product-image-gallery
-    margin-bottom: .5rem
-    background: #fff
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
-
 .product-image-container
     margin-bottom: 1rem
 
@@ -3648,9 +3624,6 @@ body.safari .product-image-thumbs .thumb-link
     font-size: 12px
 
 /* @simulador-frete */
-.frete
-    margin-bottom: 0 !important
-
 .frete__title
     display: flex
     justify-content: center
@@ -3843,16 +3816,6 @@ body.safari .product-image-thumbs .thumb-link
     display: flex
     align-items: stretch
     max-width: 100%
-
-.prod__img
-    flex: 0 0 400px
-    margin-right: 2rem
-
-.prod__shop
-    display: flex
-    flex: 1 1 5rem
-    align-items: stretch
-    min-width: 1px
 
 .prod__shop .col1
     flex: 1 1 5rem
@@ -9552,9 +9515,6 @@ table .change-product-link:hover
 /* ------ Produto */
 /* ~ 1024px */
 @media (max-width: 64rem)
-    .prod__shop
-        flex-flow: column nowrap
-
     .prod__shop .col1
         margin-bottom: 2rem
 
@@ -9563,57 +9523,8 @@ table .change-product-link:hover
 
 /* ~992px */
 @media (max-width: 62rem)
-    .prod__img
-        flex: 1 1 50%
-        margin-right: 1rem
-
-    .product-image-gallery
-        height: auto
-
-    .prod__shop
-        flex: 1 1 50%
-
     .prod__name h1
         font-size: 2rem
-
-    /* @parcelamento */
-    .parcelamento .title
-        display: block
-        display: flex
-        justify-content: space-between
-        align-items: center
-        padding: 1rem
-        border: 1px solid rgba(0, 0, 0, .1)
-        background: #fff
-        font-size: 1rem
-
-    .parcelamento .title:after
-        display: block
-
-        icon('\f105')
-
-    .parcelamento ul
-        position: fixed
-        top: 0
-        left: 100%
-        z-index: 9999
-        overflow-y: auto
-        padding: 1rem
-        width: 100vw
-        height: 100vh
-        background: #fff
-        font-size: 1rem
-        transition: 600ms cubic-bezier(.23, 1, .32, 1)
-        column-gap: 0
-        column-count: initial
-
-    .parcelamento.on ul
-        transform: translateX(-100%)
-
-    .parcelamento__hide
-        display: block
-        margin: -1rem -1rem 1rem
-        border-radius: 0
 
     /* @simulador-frete */
     .frete__title
@@ -9693,13 +9604,6 @@ table .change-product-link:hover
 
     .product-essential
         margin-bottom: 0
-
-    .prod__img
-        margin: 0 0 1rem
-
-    .product-image-gallery
-        margin-right: -1rem
-        margin-left: -1rem
 
     .catalog-product-view .breadcrumb
         display: none
@@ -9923,40 +9827,6 @@ table .change-product-link:hover
         margin-right: -1rem
         margin-left: -1rem
         border-width: 0 0 1px
-
-    /* @links */
-    .add-to-links
-        margin: 0 !important
-
-    .add-to-links li:not(:last-child)
-        margin: 0
-
-    .add-to-links a
-        display: flex
-        align-items: center
-        margin: 0 -1rem
-        padding: 1rem
-        border-bottom: 1px solid rgba(0, 0, 0, .1)
-        border-radius: 0
-        box-shadow: none
-        text-align: left
-        font-weight: 400
-        font-size: 1rem
-        line-height: 1em
-
-    .add-to-links li:first-child a
-        border-top: 1px solid rgba(0, 0, 0, .1)
-
-    .add-to-links a:after
-        margin-left: auto
-
-    .add-to-links .link-wishlist a:after
-        display: inline
-
-        icon('\f004')
-
-    .add-to-links .link-compare a:after
-        content: '\f012'
 
     /* Empacotado */
     .bundle
