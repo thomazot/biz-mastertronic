@@ -1,0 +1,35 @@
+.frete
+    margin: 0 0 (gap / 2)
+
+    &__title, &__form label, &__naosei
+        display: none
+
+    &__content
+        display: block
+
+    &__form
+        position: relative
+
+        .input-box
+            width: 100%
+
+        .input-text
+            height: 58px
+            border: solid 1px var(--color-input)
+            box-shadow: none
+
+    &__actions
+        position: absolute
+        top: 0
+        right: 0
+        padding: 6px
+
+        .btn
+            height: 46px
+            background: var(--blue)
+
+            span
+                display: none
+
+            &:before
+                content: 'Calcular Frete'

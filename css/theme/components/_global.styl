@@ -137,3 +137,19 @@ select
     font-weight: regular
     font-size: 14px
     appearance: none
+
+.related__title, .recommended__title, .whosaw__title, .jointsales__title, .upsell__title, .tabs__tab
+    font-weight: regular
+    font-size: 14px
+
+    @media media-max-sm
+        margin: 0 -16px
+        width: auto
+
+    @media media-min-sm
+        padding: (gap / 2) 0
+        border-bottom: solid 2px var(--color-border)
+        font-size: 21px
+
+.related__subtitle, .related__add-checkbox
+    display: none

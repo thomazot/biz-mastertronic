@@ -1,0 +1,135 @@
+.jointsales
+    &__title
+        span:after
+            content: ' e ganhe desconto'
+            font-weight: regular
+
+    &__row
+        padding: 0
+
+    &__currentin, &__item
+        .title
+            color: #444444
+            font-weight: regular
+            font-size: 15px
+
+    &__currentin
+        display: block
+        border-right: solid 1px #eaeaea
+        box-shadow: none
+
+        @media media-max-sm
+            padding-right: 0
+            padding-left: 0
+            border: 0
+
+        .thumb
+            margin-bottom: (gap / 2)
+
+    &__item
+        display: block
+
+    &__current
+        flex: 0 1 315px
+
+        + .jointsales__list
+            flex: 1
+            min-width: 0
+
+    &__payments
+        display: none
+
+    &__center
+        display: flex
+        flex: 0 1 315px
+        flex-flow: column nowrap
+        justify-content: center
+        align-self: center
+        align-items: center
+        padding: 40px 16px
+        min-width: 0
+        border: solid 1px #dddddd
+        border-radius: 2px
+        text-align: center
+
+        @media media-max-sm
+            margin-top: 32px
+
+        .jointsales
+            &__totals, &__action
+                align-self: center
+
+            &__action
+                .btn
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    padding: 0 32px
+                    width: 100%
+                    height: 64px
+                    background: var(--button)
+                    box-shadow: none
+                    text-transform: uppercase
+                    font-weight: bold
+                    font-size: 16px
+
+        .todos-juntos
+            color: var(--color-text)
+            font-weight: bold
+            font-size: 18px
+
+            .price
+                display: block
+                color: var(--color-text)
+                font-weight: regular
+
+        .comprando-junto
+            font-size: 0
+
+            .price
+                color: var(--blue)
+                font-weight: regular
+                font-size: 31px
+
+        .economize
+            background: none
+            color: #007cff
+            font-size: 0
+
+            .price
+                color: #007cff
+                font-weight: medium
+                font-size: 16px
+
+                &:before
+                    content: 'economize'
+
+    &__list
+        justify-content: flex-start
+
+    .more
+        right: -25px
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0
+        width: 50px
+        height: 50px
+        border: solid 1px #eaeaea
+        border-radius: 50%
+        background: #fff
+        transform: none
+
+        @media media-max-sm
+            display: none
+
+        .ico
+            width: 18px
+            height: 18px
+            color: var(--color-text)
+
+        &:before
+            display: none
+
+    .owl-wrapper-outer
+        border: 0
