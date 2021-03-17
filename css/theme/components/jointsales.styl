@@ -1,11 +1,35 @@
 .jointsales
     &__title
+        font-weight: semibold
+
         span:after
             content: ' e ganhe desconto'
             font-weight: regular
 
     &__row
         padding: 0
+
+        .old-price
+            .label
+                display: none
+
+            .price
+                text-decoration: none
+
+                span
+                    color: var(--color-old-price)
+                    text-decoration: line-through
+                    font-weight: regular
+                    font-size: 14px
+
+        .special-price, .regular-price
+            .label
+                display: none
+
+            .price span
+                color: var(--color-special-price)
+                font-weight: medium
+                font-size: 22px
 
     &__currentin, &__item
         .title
@@ -87,7 +111,7 @@
             font-size: 0
 
             .price
-                color: var(--blue)
+                color: var(--button)
                 font-weight: regular
                 font-size: 31px
 

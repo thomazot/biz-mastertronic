@@ -98,12 +98,7 @@
          * addSVG() - defaults
          */
         if (neon.default_SVGs !== false) {
-            var truck = {
-                'img-truck': {
-                    selector: '.frete__title',
-                    mode: 'append',
-                },
-            }
+            var truck = {}
             var svgs = {
                 'img-truck': {
                     selector:
@@ -1239,13 +1234,7 @@ $j.fn.neonTheme.custom = {
      * Funcionalidades do Tema
      */
     dropFrom: false,
-    addSVG: {
-        'img-truck': {
-            selector: '.frete .frete__content .input-box label',
-            mode: 'prepend',
-            ratio: false,
-        },
-    },
+    addSVG: {},
 }
 
 /**
@@ -1347,7 +1336,7 @@ function categoriesTitle() {
             item.querySelector('.a--0').textContent.trim()
         const child = item.querySelector('.box--1')
 
-        child.setAttribute('data-title', title)
+        if (child && title) child.setAttribute('data-title', title)
     })
 }
 
@@ -1419,12 +1408,31 @@ function createRootVariableRGB() {
     })
 }
 
+function paymentProduct() {
+    const payments = $j('#prod-payments')
+
+    if (payments.length) {
+        modal('prod-payments')
+
+        const prices = $j('.prod__prices')
+
+        if (prices.length) {
+            prices.append(
+                '<a class="payments-link" href="javascript:void(0)" onclick="modal_open(\'prod-payments\')">Ver formas de pagamento</a>'
+            )
+        }
+    }
+}
+
 $j(document)
     .ready(function ($) {
         // document.ready
         const body = $('body')
         // Create variable rgb
         createRootVariableRGB()
+
+        // paymentProduct
+        paymentProduct()
 
         // Scrolling
         scrollTop()
@@ -1483,6 +1491,10 @@ $j(document)
             'z-plus': {
                 selector: '.jointsales .more',
                 mode: 'html',
+            },
+            'z-truck': {
+                selector: '.frete .frete__form label',
+                mode: 'prepend',
             },
         })
         // Menu Categories
@@ -1587,35 +1599,35 @@ $j(document)
             })
         }
 
-        const payments = $('.prod__payments .parcelamento')
-        if (payments.length) {
-            payments.find('li').each(function () {
-                if ($(this).find('.valor-total').length === 0) {
-                    const parcela = parseInt($(this).find('.parcela').text())
-                    const price = parseFloat(
-                        $(this)
-                            .find('.valor')
-                            .text()
-                            .replace('R$', '')
-                            .replace(',', '.')
-                    )
+        // const payments = $('.prod__payments .parcelamento')
+        // if (payments.length) {
+        //     payments.find('li').each(function () {
+        //         if ($(this).find('.valor-total').length === 0) {
+        //             const parcela = parseInt($(this).find('.parcela').text())
+        //             const price = parseFloat(
+        //                 $(this)
+        //                     .find('.valor')
+        //                     .text()
+        //                     .replace('R$', '')
+        //                     .replace(',', '.')
+        //             )
 
-                    $(this).append(
-                        '<div class="valor-total"> R$ ' +
-                            (price * parcela).toFixed(2).replace('.', ',') +
-                            '</div>'
-                    )
-                }
-                const buttonBuy = $('<button type="button">Comprar</button>')
-                $(this).append($(`<div class="buy"></div>`).append(buttonBuy))
+        //             $(this).append(
+        //                 '<div class="valor-total"> R$ ' +
+        //                     (price * parcela).toFixed(2).replace('.', ',') +
+        //                     '</div>'
+        //             )
+        //         }
+        //         const buttonBuy = $('<button type="button">Comprar</button>')
+        //         $(this).append($(`<div class="buy"></div>`).append(buttonBuy))
 
-                buttonBuy.click(function () {
-                    $('.prod__call-to-actions .add-to-cart-btn').trigger(
-                        'click'
-                    )
-                })
-            })
-        }
+        //         buttonBuy.click(function () {
+        //             $('.prod__call-to-actions .add-to-cart-btn').trigger(
+        //                 'click'
+        //             )
+        //         })
+        //     })
+        // }
 
         $('.jointsales__row').each(function () {
             $(

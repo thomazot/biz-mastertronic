@@ -1,8 +1,46 @@
 .frete
+    position: relative
     margin: 0 0 (gap / 2)
 
-    &__title, &__form label, &__naosei
+    &__title
         display: none
+
+    &__naosei
+        position: absolute
+        top: 25px
+        bottom: auto
+        left: 5px
+        font-weight: regular
+        font-size: 0
+
+        &:before
+            content: 'Não sabe o seu cep?'
+            font-size: 13px
+
+    &__form label
+        display: flex
+        flex: 0 0 160px
+        justify-content: flex-start
+        align-items: center
+        margin-top: -20px
+        font-size: 0
+
+        @media media-max-sm
+            margin-top: 5px
+
+        &:after
+            content: 'Frete e Prazo'
+            font-weight: light
+            font-size: 16px
+
+        .ico
+            margin-right: 4px
+            width: 37px
+            height: 22px
+            opacity: .6
+
+        span
+            display: none
 
     &__content
         display: block
@@ -13,10 +51,16 @@
         .input-box
             width: 100%
 
+            @media media-max-sm
+                display: block
+
         .input-text
             height: 58px
             border: solid 1px var(--color-input)
             box-shadow: none
+
+            @media media-max-sm
+                margin-top: 30px
 
     &__actions
         position: absolute
@@ -24,12 +68,17 @@
         right: 0
         padding: 6px
 
+        @media media-max-sm
+            top: 60px
+
         .btn
             height: 46px
-            background: var(--blue)
+            background: #e8e8e8
+            box-shadow: none
+            color: var(--color-text)
 
             span
                 display: none
 
             &:before
-                content: 'Calcular Frete'
+                content: 'Calcular'
